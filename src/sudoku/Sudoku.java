@@ -30,8 +30,8 @@ public class Sudoku {
             }
         }
         mat[1][4]=9;
-        mat[7][4]=9;
-        mat[1][6]=9;
+        //mat[7][4]=9;
+        //mat[1][6]=9;
         
         for (int i = 0; i < mat.length; i++) {
             if (i==3 || i==6 || i==9) {
@@ -50,6 +50,7 @@ public class Sudoku {
         for (int i = 0; i < mat.length; i++) {
             for (int j = 0; j < mat.length; j++) {
                 if (mat[i][j]==9) {
+                    int valor = mat[i][j];
                     System.out.println("La posicion del numero es: "+i+", "+j);
                 }
             }
