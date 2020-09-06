@@ -12,16 +12,8 @@ import java.util.Scanner;
  * @author Desk-strako
  */
 public class Sudoku {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
-        int m=9;
-        int n=9;
+    public static int[][] rellenaMat(int mat[][]){
         Scanner in = new Scanner(System.in);
-        int mat[][] = new int [m][n];
         for (int i = 0; i < mat.length; i++) {
             for (int j = 0; j < mat.length; j++) {
                 //System.out.println("ingresa valor en la posicion: "+i+","+j+":");
@@ -29,10 +21,25 @@ public class Sudoku {
                 mat[i][j]=0;
             }
         }
-        mat[1][4]=9;
-        //mat[7][4]=9;
-        //mat[1][6]=9;
-        
+        return mat;
+    }
+    public static boolean busqueda(int mat[][]){
+        boolean res=false;
+        for (int i = 0; i < mat.length; i++) {
+            for (int j = 0; j < mat.length; j++) {
+                int [] valor =new int[9];
+                if (mat[i][j]>0) {
+                    valor[0]=mat[i][j];
+                    valor[1]=i;
+                    valor[2]=j;
+                    System.out.println("el valor guardado es: "+mat[i][j]+", "+i+", "+j);
+                }
+            }
+        }
+        return res;
+    }
+
+    public static void imprime(int mat[][]){
         for (int i = 0; i < mat.length; i++) {
             if (i==3 || i==6 || i==9) {
                     System.out.println("--------------------------------");
@@ -46,6 +53,22 @@ public class Sudoku {
             }
             System.out.println(" ");
         }
+    }
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        int m=9;
+        int n=9;
+        
+        int mat[][] = new int [m][n];
+        rellenaMat(mat);
+        mat[1][4]=9;
+        //mat[7][4]=9;
+        //mat[1][6]=9;
+        busqueda(mat);
+        
         
         for (int i = 0; i < mat.length; i++) {
             for (int j = 0; j < mat.length; j++) {
