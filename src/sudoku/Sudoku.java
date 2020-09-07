@@ -38,7 +38,7 @@ public class Sudoku {
         }
     }
     
-    public boolean posible(int mat[][],int x, int y,int n){
+    public boolean posible(int x, int y,int n){
         for (int i = 0; i < mat.length; i++) {
             if (mat[x][i]==n) {
                 return false;
@@ -66,7 +66,7 @@ public class Sudoku {
             for (int j = 0; j < mat.length; j++) {
                 if (mat[i][j]==0) {
                     for (int k = 1; k < 10; k++) {
-                        if (posible(mat, i, j, k)) {
+                        if (posible(i, j, k)) {
                             mat[i][j]=k;
                             resolver();
                             mat[i][j]=0;
